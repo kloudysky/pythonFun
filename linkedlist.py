@@ -7,6 +7,7 @@ class LinkedList:
     def __init__(self):
         self.first = None
         self.last = None
+        self.size = 0
 
     def addFirst(self, data):
         node = Node(data)
@@ -16,6 +17,7 @@ class LinkedList:
         else:
             node.next = self.first
             self.first = node
+        self.size += 1
 
     def addLast(self, data):
         node = Node(data)
@@ -25,6 +27,7 @@ class LinkedList:
         else:
             self.last.next = node
             self.last = node
+        self.size += 1
 
     def isEmpty(self):
         return self.first == None
@@ -38,6 +41,7 @@ class LinkedList:
             second = self.first.next
             self.first = None
             self.first = second
+        self.size -= 1
     
     def deleteLast(self):
         if self.isEmpty():
@@ -48,6 +52,7 @@ class LinkedList:
             previousNode = self._getPrevious(self.last)
             self.last = previousNode
             self.last.next = None
+        self.size -= 1
 
     def _getPrevious(self, node: Node):
         currentNode = self.first
@@ -81,14 +86,7 @@ class LinkedList:
         return linkedListList
 
     def __len__(self):
-        count = 0
-        if self.isEmpty():
-            return 0
-        currentNode = self.first
-        while currentNode:
-            count += 1
-            currentNode = currentNode.next
-        return count
+        return self.size
 
     def __str__(self):
         if self.isEmpty():
