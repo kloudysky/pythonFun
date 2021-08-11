@@ -37,7 +37,7 @@ class LinkedList:
 
     def deleteFirst(self):
         if self.isEmpty():
-            raise NotImplementedError("List is empty")
+            return
         if self.first == self.last:
             self.first = self.last = None
         else:
@@ -48,7 +48,7 @@ class LinkedList:
     
     def deleteLast(self):
         if self.isEmpty():
-            raise NotImplementedError("List is empty")
+            return
         if self.first == self.last:
             self.first = self.last = None
         else:
