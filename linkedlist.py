@@ -110,7 +110,7 @@ class LinkedList:
             return "Linked List is Empty"
         toList = f'{self.first.data}'
         currentNode = self.first.next
-        while currentNode is not None:
+        while currentNode:
             toList += f' -> {currentNode.data}'
             currentNode = currentNode.next
         return toList
