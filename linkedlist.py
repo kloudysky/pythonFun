@@ -2,6 +2,9 @@ class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
+    
+    def __str__(self):
+        return f'{self.data}'
 
 class LinkedList:
     def __init__(self):
@@ -84,6 +87,20 @@ class LinkedList:
             linkedListList.append(currentNode.data)
             currentNode = currentNode.next
         return linkedListList
+    
+    def reverse(self):
+        if self.isEmpty():
+            return
+        previous = self.first
+        current = self.first.next
+        while current:
+            next = current.next
+            current.next = previous
+            previous = current
+            current = next
+        self.last = self.first
+        self.last.next = None
+        self.first = previous
 
     def __len__(self):
         return self.size
